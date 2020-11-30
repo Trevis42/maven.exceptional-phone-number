@@ -34,20 +34,6 @@ public final class PhoneNumberFactory {
      * @return an instance of PhoneNumber with randomly generated phone number value
      */ //TODO - Implement logic
     public static PhoneNumber createRandomPhoneNumber() throws InvalidPhoneNumberFormatException {
-//        Integer rng = ThreadLocalRandom.current().nextInt(0, 10);
-//        StringBuilder areaCode = new StringBuilder();
-//        StringBuilder centralOfficeCode = new StringBuilder();
-//        StringBuilder phoneLineCode = new StringBuilder();
-//
-//        areaCode.append(rng).append(rng).append(rng);
-//        centralOfficeCode.append(rng).append(rng).append(rng);
-//        phoneLineCode.append(rng).append(rng).append(rng).append(rng);
-
-//        return createPhoneNumberSafely(
-//                Integer.parseInt(String.valueOf(areaCode)),
-//                Integer.parseInt(String.valueOf(centralOfficeCode)),
-//                Integer.parseInt(String.valueOf(phoneLineCode)));
-        //Leon did it this way
         return createPhoneNumberSafely(
                 RandomNumberFactory.createInteger(100,999),
                 RandomNumberFactory.createInteger(100,999),
@@ -80,6 +66,7 @@ public final class PhoneNumberFactory {
      */
     public static PhoneNumber createPhoneNumber(String phoneNumberString) throws InvalidPhoneNumberFormatException {
         PhoneNumber phoneNumber;
+        logger.info(String.format("Creating phone number with value [ %s ]", phoneNumberString));
         phoneNumber = new PhoneNumber(phoneNumberString);
         return phoneNumber;
     }
